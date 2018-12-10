@@ -1,6 +1,6 @@
-#Steps To Success As A New Rails Developer
+# Steps To Success As A New Rails Developer
 
-##Setting Up Your Environment
+## Setting Up Your Environment
 Like anything, the first steps to developing with something is making sure you have the environment to use it effectively. As such, you'll need to look into installing the following software in your local environment to work.
 
 - rvm (Ruby Version Manager) and the latest ruby. (You could try rbenv if you REALLY feel like the hassle)
@@ -20,7 +20,7 @@ Bonuses
  - You won't need these for a while, but it's definitely worthwhile to have these later.
 - Redis
 
-##Initializing Your Rails Project
+## Initializing Your Rails Project
 Now that you have your environment set up, it's time to get your rails project going, and get familiar with the rails paradigm.
 
 Rails has a bunch of generators built into to make getting certain files set up according to Rail's conventions, including a rails project itself. I'll leave you to find out how to initialize a new rails project, but there's a couple conditions to fufill here.
@@ -55,7 +55,7 @@ More Gems:
 - Ruby-Critic (require: false)
 - Tell me why (require: false) is good idea for these.
 
-##Some Research
+## Some Research
 Ruby works because it removes a lot of the cognitive load involved in web development through a large number of conventions that it uses over requiring configuration. As such, there's some concepts that you should know to understand what exactly it's doing, lest you fight the conventions or just try to use something without knowing its purpose.
 
 - HTTP Request/Reponse lifecycle
@@ -77,7 +77,7 @@ Ruby works because it removes a lot of the cognitive load involved in web develo
 
 You don't need to know everything in this list backwards, just knowing enough about it to know why it's there will help you get by as you build your experience with these parts moving forward.
 
-##Your First Pages
+## Your First Pages
 Now that you have some basic understanding of what Rails is doing, it's time to get something going. You're going to set up a dashboard to start with, though you'll have to make do with whatever dummy data you want to supply to it to get started.
 
 For this you'll need to do the following:
@@ -89,7 +89,7 @@ For this you'll need to do the following:
 
 For now, have it supply a hello world message and describe how wonderful WeThinkCoffee_ is, and how many people will be joining us in the future.
 
-##Forms and Models
+## Forms and Models
 Now that you've got some basic pages going, we're going to start making the front end tell the back end things to make the application useful. To accomplish this, you're going to need to set up some forms and models.
 
 - Generate a new model called AcceptedDate with the field date
@@ -104,7 +104,7 @@ Now that you've got some basic pages going, we're going to start making the fron
   - Dates can be a unique pain to deal with from a form submission perspective. There's a few ways to handle this depending on your preference. If you can get the front end to handle it, great, otherwise, some objects/class usually have a **parse** method that could be useful.
 - Get the DashboardIndex to show some nice information about the accepted dates. Maybe we'd like to know what the most accepted date is for the upcomming month?
   
-##User Access Control and Making Useful Data
+## User Access Control and Making Useful Data
 Great, you're taking in data, parsing it, displaying it and more. Fantastic progress. Only problem is, anyone can come along and make as many accepted date models as they want. That's not ideal. So now we're going to define users, attach the accepted date model to users and make the data a little more meaningful.
 
 - Like before, add the gem 'devise' to your gemfile
@@ -151,14 +151,14 @@ Bonuses:
 - SimpleCov doesn't do branch analysis. While most people can live with that, it's worth knowing what we're sacrificing.
 - Rspec has some interesting commented code in those helpers you generated. Some of them might even be handy for finding out where you've written slow spec, or just slow code.
 
-##Big Bonuses
+## Big Bonuses
 - Integrating Bootstrap via the Google CDN links is simple enough. Make things pretty :D
   - Similarly to classes, **layouts** and views can play something of an inheritance game. Maybe read up on the **render** method.
 - A user might decide they cannot attend WeThinkCoffee_ in a month. Perhaps you can think of way to allow them to specify this, and disqualify their accepted dates accordingly?
 - All this fun we've been having, and we haven't even played with Javascript. Maybe it's time to change that with some fancy date selectors and client side validation? 
 - 
 
-##DevOps
+## DevOps
 In a normal ruby developer lifecycle, Spec is extremely important. But no-one wants to have to pull your code and test it everytime you do something. So we're going to use CircleCi to get it to automatically test our code for us, and tell github about it.
 
 - CircleCi is pretty well documented, so you'll need to:
@@ -186,14 +186,14 @@ Bonuses:
   - docker-compose files know how to set ENV variables either directly, or from an env file you specify.
 - Maybe look at the after hooks for CircleCi. How might you get it to do something like deploy your code for you? Or maybe send you a slack when it's done succesfully or failed.
 
-##Deployment
+## Deployment
 Now we're at the fun part. If you're here, you've likely already created your deployment protocol with docker and docker-compose. Depending on whether we have a server on hand, deployment is already 80% done at this point, unless you haven't figured out how to deploy in Production mode.
 
 If there is a server on hand, you're going to need to learn how to `ssh` to that box, and how to get it to allow you pull the code on that server without pushing your ssh private key to this box, since that would be extremely unsafe.
 
 Alternatively, if there's no box on hand, Heroku allows you to set up a free hobby level application in a similar way to your configurations for CircleCi. All the documentation is on the web, and in many ways Heroku simplifies many of difficulties one might experience in deployment... although that always comes at a price.
 
-##Maintaining A Live System
+## Maintaining A Live System
 Now that the system is live, and, with luck, in use, there's some thought that needs to be given to it's use.
 - Is it okay for the system to go down?
   - If not, how do you know if it has or hasn't. Maybe there's some nice service that could let you know?
